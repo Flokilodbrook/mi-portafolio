@@ -22,7 +22,7 @@ const Navbar = () => {
         <h1 className="text-2xl font-bold">Luis Moreno</h1>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8">
+        <ul className="hidden md:flex gap-8 items-center">
           {menuItems.map((item) => (
             <li key={item.href}>
               <a href={item.href} className="nav-link">
@@ -30,17 +30,19 @@ const Navbar = () => {
               </a>
             </li>
           ))}
-        </ul>
 
-        {/* Desktop CV Button */}
-        <a
-          href="/Luis_Moreno_CV.pdf"
-          download="Luis_Moreno_CV.pdf"
-          className="hidden md:flex btn-secondary items-center gap-2"
-        >
-          <Download size={20} />
-          Descargar CV
-        </a>
+          {/* Desktop CV Button */}
+          <li>
+            <a
+              href="/Luis_Moreno_CV.pdf"
+              download="Luis_Moreno_CV.pdf"
+              className="btn-secondary flex items-center gap-2"
+            >
+              <Download size={20} />
+              Descargar CV
+            </a>
+          </li>
+        </ul>
 
         {/* Mobile Menu Button */}
         <button
@@ -66,7 +68,16 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-           
+
+            {/* Mobile CV Button integrado dentro del menú */}
+            <a
+              href="/Luis_Moreno_CV.pdf"
+              download="Luis_Moreno_CV.pdf"
+              className="btn-secondary flex items-center gap-2 text-sm px-4 py-2 mt-2"
+            >
+              <Download size={16} />
+              Descargar CV
+            </a>
           </div>
         </div>
       )}
