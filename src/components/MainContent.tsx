@@ -1,5 +1,5 @@
-import React from "react";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+
+import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 const MainContent = () => {
@@ -72,19 +72,7 @@ const MainContent = () => {
     },
   ];
 
-  // ✅ Aquí defines los variants fuera del return
-  const textVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        type: "spring",
-        stiffness: 50,
-      },
-    }),
-  };
+
 
   return (
     <main className="bg-background min-h-screen">
