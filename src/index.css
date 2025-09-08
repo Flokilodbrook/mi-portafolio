@@ -1,0 +1,173 @@
+/* =======================
+   VARIABLES DE COLOR
+======================= */
+:root {
+  --background: 0 0% 100%; /* blanco puro */
+
+  --foreground: 204 62% 17%; /* #113047 */
+  
+  --primary: 204 62% 17%;
+  --primary-foreground: 42 78% 92%;
+  
+  --accent: 201 34% 59%;
+  --accent-foreground: 42 78% 92%;
+  
+  --muted: 201 20% 85%;
+  --muted-foreground: 204 35% 35%;
+  
+  --card: 42 78% 92%;
+  --card-foreground: 204 62% 17%;
+  
+  --border: 201 30% 75%;
+  --input: 0 0% 100%;
+}
+
+/* =======================
+   UTILIDADES DE COLOR
+======================= */
+.bg-background { background-color: hsl(var(--background)); }
+.text-foreground { color: hsl(var(--foreground)); }
+
+.bg-primary { background-color: hsl(var(--primary)); }
+.text-primary-foreground { color: hsl(var(--primary-foreground)); }
+
+.bg-accent { background-color: hsl(var(--accent)); }
+.text-accent-foreground { color: hsl(var(--accent-foreground)); }
+
+.bg-card { background-color: hsl(var(--card)); }
+.text-card-foreground { color: hsl(var(--card-foreground)); }
+
+.border-border { border-color: hsl(var(--border)); }
+.bg-input { background-color: hsl(var(--input)); }
+
+/* =======================
+   TIPOGRAFÍA Y BODY
+======================= */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+
+span{
+    color: hsl(var(--accent))
+}
+
+/* =======================
+   BOTONES
+======================= */
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn-primary:hover {
+  background-color: hsl(var(--primary) / 0.9);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn-secondary:hover {
+  background-color: hsl(var(--accent) / 0.9);
+  transform: scale(1.05);
+}
+
+/* =======================
+   SECCIONES
+======================= */
+.portfolio-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  scroll-margin-top: 5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: hsl(var(--primary));
+  border-bottom: 2px solid hsl(var(--accent));
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* =======================
+   TARJETAS DE PROYECTO Y HABILIDADES
+======================= */
+.project-card {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.skill-badge {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.skill-badge:hover {
+  transform: scale(1.05);
+}
+
+/* =======================
+   NAVBAR
+======================= */
+.nav-link {
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: hsl(var(--accent));
+}
+
+/* =======================
+   FORMULARIOS
+======================= */
+input, textarea {
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--input));
+  padding: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.2s;
+}
+input:focus, textarea:focus {
+  border-color: hsl(var(--accent));
+  box-shadow: 0 0 0 2px hsl(var(--accent)/0.3);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (min-width: 768px) {
+  .section-title { font-size: 2rem; }
+  .btn-primary, .btn-secondary { padding: 0.75rem 2rem; }
+}
