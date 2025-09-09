@@ -1,4 +1,3 @@
-
 import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -72,8 +71,6 @@ const MainContent = () => {
     },
   ];
 
-
-
   return (
     <main className="bg-background min-h-screen">
       {/* Hero Section */}
@@ -85,10 +82,13 @@ const MainContent = () => {
             animate="visible"
             className="space-y-6 order-2 md:order-1 text-center md:text-left"
             variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.3 }, // animación escalonada
+              },
             }}
           >
+            {/* Subtítulo */}
             <motion.div
               className="inline-block px-4 py-2 bg-accent/10 rounded-full text-[hsl(201,34%,59%)] font-medium mb-4"
               variants={{
@@ -96,20 +96,58 @@ const MainContent = () => {
                 visible: { opacity: 1, y: 0 },
               }}
             >
-              ¡Bienvenido a mi portafolio!
+              {"¡Bienvenido a mi portafolio!".split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
             </motion.div>
 
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold text-primary leading-tight"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-            >
-              Hola, soy{" "}
-              <motion.span className="text-accent">Luis Moreno</motion.span>
-            </motion.h1>
+      {/* Título con colores distintos */}
+<motion.h1
+  className="text-4xl md:text-6xl font-bold leading-tight"
+  variants={{
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.05 },
+    },
+  }}
+>
+  {"Hola, soy ".split("").map((char, i) => (
+    <motion.span
+      key={i}
+      style={{ color: "#103244" }} // azul fuerte
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      }}
+    >
+      {char}
+    </motion.span>
+  ))}
 
+  {"Luis Moreno".split("").map((char, i) => (
+    <motion.span
+      key={`name-${i}`}
+      style={{ color: "hsl(201,34%,59%)" }} // azul más claro
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      }}
+    >
+      {char}
+    </motion.span>
+  ))}
+</motion.h1>
+
+
+            {/* Párrafo */}
             <motion.p
               className="text-lg md:text-xl text-muted-foreground max-w-3xl text-justify"
               variants={{
@@ -134,7 +172,7 @@ const MainContent = () => {
               src="/profile.png"
               alt="Luis Moreno"
               className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg"
-              animate={{ scale: [1, 1.05, 1] }} // efecto de pulse
+              animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
@@ -275,7 +313,7 @@ const MainContent = () => {
                 <img
                   src="/skills/github.svg"
                   alt="GitHub"
-                  className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                  className="w-18 h-18 md:w-16 md:h-16 object-contain"
                 />
               </div>
             </div>
@@ -283,56 +321,55 @@ const MainContent = () => {
         </div>
       </section>
 
-     {/* Skills Section */}
-<section
-  id="skills"
-  className="portfolio-section py-16 px-6 md:px-12 max-w-7xl mx-auto bg-card/30 overflow-hidden"
->
-  <h2 className="section-title mb-12 text-center">Habilidades</h2>
-
-  {/* Carrusel SOLO en pantallas medianas en adelante */}
-  <motion.div
-    className="hidden md:flex gap-6"
-    animate={{ x: ["0%", "-130%"] }}
-    transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
-  >
-    {repeatedSkills.map((skill, index) => (
-      <div
-        key={index}
-        className="flex-shrink-0 w-32 h-32 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center hover:scale-105 transition-transform snap-center"
+      {/* Skills Section */}
+      <section
+        id="skills"
+        className="portfolio-section py-16 px-6 md:px-12 max-w-7xl mx-auto bg-card/30 overflow-hidden"
       >
-        <img
-          src={skill.img}
-          alt={skill.name}
-          className="w-16 h-16 object-contain mb-2"
-        />
-        <span className="text-sm font-medium text-foreground text-center">
-          {skill.name}
-        </span>
-      </div>
-    ))}
-  </motion.div>
+        <h2 className="section-title mb-12 text-center">Habilidades</h2>
 
-  {/* Grid estatico SOLO en celular */}
-  <div className="grid grid-cols-2 gap-6 md:hidden">
-    {skills.map((skill, index) => (
-      <div
-        key={index}
-        className="w-full h-32 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center hover:scale-105 transition-transform"
-      >
-        <img
-          src={skill.img}
-          alt={skill.name}
-          className="max-w-[40px] max-h-[40px] object-contain mb-2"
-        />
-        <span className="text-sm font-medium text-foreground text-center">
-          {skill.name}
-        </span>
-      </div>
-    ))}
-  </div>
-</section>
+        {/* Carrusel SOLO en pantallas medianas en adelante */}
+        <motion.div
+          className="hidden md:flex gap-6"
+          animate={{ x: ["0%", "-130%"] }}
+          transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+        >
+          {repeatedSkills.map((skill, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-32 h-32 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center hover:scale-105 transition-transform snap-center"
+            >
+              <img
+                src={skill.img}
+                alt={skill.name}
+                className="w-16 h-16 object-contain mb-2"
+              />
+              <span className="text-sm font-medium text-foreground text-center">
+                {skill.name}
+              </span>
+            </div>
+          ))}
+        </motion.div>
 
+        {/* Grid estatico SOLO en celular */}
+        <div className="grid grid-cols-2 gap-6 md:hidden">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className="w-full h-32 bg-white rounded-xl shadow-lg flex flex-col items-center justify-center hover:scale-105 transition-transform"
+            >
+              <img
+                src={skill.img}
+                alt={skill.name}
+                className="max-w-[60px] max-h-[60px] object-contain mb-2"
+              />
+              <span className="text-sm font-medium text-foreground text-center">
+                {skill.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section
