@@ -275,7 +275,7 @@ const MainContent = () => {
                 <img
                   src="/skills/github.svg"
                   alt="GitHub"
-                  className="w-12 h-12 md:w-16 md:h-16 object-contain"
+                  className="w-14 h-14 md:w-16 md:h-16 object-contain"
                 />
               </div>
             </div>
@@ -323,7 +323,7 @@ const MainContent = () => {
         <img
           src={skill.img}
           alt={skill.name}
-          className="w-12 h-12 object-contain mb-2"
+          className="max-w-[40px] max-h-[40px] object-contain mb-2"
         />
         <span className="text-sm font-medium text-foreground text-center">
           {skill.name}

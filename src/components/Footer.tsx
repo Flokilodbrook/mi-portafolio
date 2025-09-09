@@ -46,33 +46,6 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 text-center md:text-left">
-          {/* About */}
-          <div className="space-y-3">
-            <h3 className="text-lg md:text-xl font-bold">Luis Moreno</h3>
-            <p className="text-primary-foreground/80 leading-relaxed text-sm md:text-base">
-              Desarrollador Frontend especializado en crear experiencias web 
-              excepcionales con React y tecnologías modernas.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-3">
-            <h4 className="text-base md:text-lg font-semibold">Enlaces rápidos</h4>
-            <nav className="flex flex-col space-y-2 text-sm md:text-base">
-              <a href="#about" className="nav-link text-primary-foreground/80">
-                Sobre mí
-              </a>
-              <a href="#projects" className="nav-link text-primary-foreground/80">
-                Proyectos
-              </a>
-              <a href="#skills" className="nav-link text-primary-foreground/80">
-                Habilidades
-              </a>
-              <a href="#contact" className="nav-link text-primary-foreground/80">
-                Contacto
-              </a>
-            </nav>
-          </div>
 
           {/* Contact Info */}
           <div className="space-y-3">
